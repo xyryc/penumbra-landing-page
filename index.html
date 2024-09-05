@@ -27,11 +27,11 @@
       }
     </style>
   </head>
-  <body class="font-spartan">
+  <body class="font-spartan text-[#FFFFFF]">
     <header class="header-background h-screen">
       <!-- navbar -->
       <nav
-        class="container mx-auto flex justify-end items-center gap-9 pt-[60px]"
+        class="container mx-auto flex justify-end items-center gap-9 pt-10 2xl:pt-[60px] text-lg font-normal"
       >
         <a href="">Home</a>
         <a href="">About project</a>
@@ -41,22 +41,33 @@
       </nav>
 
       <!-- banner -->
-      <section class="pt-[133px] pb-[113px] border">
+      <section class="flex justify-center items-center h-screen">
         <div
-          class="container mx-auto grid grid-cols-2 justify-center items-center gap-10 border"
+          class="container mx-auto grid grid-cols-2 justify-center items-center"
         >
           <!-- text container -->
-          <div class="border">
-            <img class="ml-auto" src="./images/penumbra_logo.png" alt="" />
+          <div class="flex flex-col justify-center items-end">
+            <img src="./images/penumbra_logo.png" alt="" />
 
-            <p class="text-right">
+            <p
+              class="w-9/12 text-right mb-5 2xl:mb-7 mt-10 2xl:mt-[60px] text-xl font-[233]"
+            >
               “It is only through pain that we know are alive, and this time, my
               friend, the pain must end,”
             </p>
+
+            <p class="text-xl font-[233]">Tom “Red” Redwood</p>
+
+            <div
+              class="flex justify-center items-center gap-2.5 mt-[55px]"
+            >
+              <img src="./images/steam_logo.png" alt="" />
+              <p>Check it out on Steam now!</p>
+            </div>
           </div>
 
           <!-- blank container -->
-          <div class="border">dada</div>
+          <div></div>
         </div>
       </section>
     </header>
