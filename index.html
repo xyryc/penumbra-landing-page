@@ -50,7 +50,7 @@
         <a href="">License</a>
       </nav>
 
-      <!-- banner -->
+      <!-- banner section -->
       <section class="flex justify-center items-center h-screen">
         <div
           class="container mx-auto grid grid-cols-2 justify-center items-center"
@@ -81,7 +81,7 @@
     </header>
 
     <main>
-      <!-- about project -->
+      <!-- about project section -->
       <section class="about-background h-screen">
         <div class="container mx-auto flex flex-col justify-center h-screen">
           <!-- top container -->
@@ -89,7 +89,9 @@
             <h1 class="text-[34px] font-[656] mb-8 2xl:mb-[60px] underline">
               About project
             </h1>
-            <p class="text-xl 2xl:text-2xl font-[656] tracking-widest leading-[1.55]">
+            <p
+              class="text-xl 2xl:text-2xl font-[656] tracking-widest leading-[1.55]"
+            >
               Dark and creepy shafts of Greenland became his home for more than
               30 years. High arches of tunnels, awful creatures and the search
               for truth brought him to insanity. On the brink of the breakdown
@@ -123,8 +125,136 @@
           </div>
         </div>
       </section>
+
+      <!-- media section -->
+      <section>
+        <div class="relative">
+          <!-- Left Scroll Button -->
+          <button
+            id="leftBtn"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+            onclick="scrollLeft()"
+          >
+            &#9664;
+          </button>
+        
+          <!-- Image Slider -->
+          <div id="imageSlider" class="slider flex space-x-4 overflow-x-auto">
+            <img
+              src="./images/first-slide.png"
+              alt="Image 1"
+              class="w-32 cursor-pointer"
+              onclick="openModal(this.src)"
+            />
+            <img
+              src="./images/second-slide.png"
+              alt="Image 2"
+              class="w-32 cursor-pointer"
+              onclick="openModal(this.src)"
+            />
+            <img
+              src="./images/third-slide.png"
+              alt="Image 3"
+              class="w-32 cursor-pointer"
+              onclick="openModal(this.src)"
+            />
+  
+          </div>
+        
+          <!-- Right Scroll Button -->
+          <button
+            id="rightBtn"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+            onclick="scrollRight()"
+          >
+            &#9654;
+          </button>
+        </div>
+        
+        <!-- Modal -->
+        <div
+          id="imageModal"
+          class="fixed inset-x-[28%] inset-y-[15%] 2xl:inset-x-[18%] 2xl:inset-y-[15%] bg-black bg-transparent hidden items-center justify-center border-orange-500"
+        >
+          <div class="relative 2xl:w-[1130px] 2xl:h-[675px] lg:w-[650px] lg:h-[400px] ">
+            <span
+              class="absolute top-0 right-0 p-2 text-white cursor-pointer"
+              onclick="closeModal()"
+              >×</span
+            >
+            <!-- Left Modal Navigation Button -->
+            <button
+              class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+              onclick="navigateLeft()"
+            >
+              &#9664;
+            </button>
+        
+            <!-- Image Display in Modal -->
+            <img
+              id="modalImage"
+              src=""
+              alt="Selected Image"
+              class="absolute top-0 left-0 w-full h-full object-contain -z-10 "
+            />
+        
+            <!-- Right Modal Navigation Button -->
+            <button
+              class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+              onclick="navigateRight()"
+            >
+              &#9654;
+            </button>
+          </div>
+        </div>
+        
+    
+        
+      </section>
     </main>
 
     <footer></footer>
   </body>
 </html>
+
+<script>
+  const imageSlider = document.getElementById('imageSlider');
+  const images = imageSlider.querySelectorAll('img');
+  let currentIndex = 0;
+
+  // Scroll functions for main slider
+  function scrollLeft() {
+    imageSlider.scrollBy({ left: -150, behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    imageSlider.scrollBy({ left: 150, behavior: 'smooth' });
+  }
+
+  // Open modal with selected image
+  function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = src;
+    modal.classList.remove('hidden');
+    currentIndex = [...images].findIndex(img => img.src === src);
+  }
+
+  // Close modal
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+  }
+
+  // Navigate left in modal
+  function navigateLeft() {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    document.getElementById('modalImage').src = images[currentIndex].src;
+  }
+
+  // Navigate right in modal
+  function navigateRight() {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    document.getElementById('modalImage').src = images[currentIndex].src;
+  }
+</script>
