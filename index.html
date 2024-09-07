@@ -127,90 +127,129 @@
       </section>
 
       <!-- media section -->
-      <section>
-        <div class="relative">
-          <!-- Left Scroll Button -->
-          <button
-            id="leftBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
-            onclick="scrollLeft()"
-          >
-            &#9664;
-          </button>
-        
-          <!-- Image Slider -->
-          <div id="imageSlider" class="slider flex space-x-4 overflow-x-auto">
+      <section class="bg-black py-[60px]">
+        <div class="container mx-auto">
+          <h1 class="text-[34px] font-[656] mb-8 2xl:mb-[60px] underline">
+            Media
+          </h1>
+
+          <!-- image slider -->
+          <div class="relative">
+            <!-- Left Scroll Button -->
             <img
-              src="./images/first-slide.png"
-              alt="Image 1"
-              class="w-32 cursor-pointer"
-              onclick="openModal(this.src)"
+              id="leftBtn"
+              class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent text-white p-2 cursor-pointer"
+              onclick="scrollLeft()"
+              src="./images/slider-left-button.png"
             />
+
+            <!-- Image Slider -->
+            <div
+              id="imageSlider"
+              class="slider flex justify-center space-x-5 overflow-x-auto"
+            >
+              <img
+                src="./images/first-slide.png"
+                alt="Image 1"
+                class="w-[367px] cursor-pointer"
+                onclick="openModal(this.src)"
+              />
+              <img
+                src="./images/second-slide.png"
+                alt="Image 2"
+                class="w-[367px] cursor-pointer"
+                onclick="openModal(this.src)"
+              />
+              <img
+                src="./images/third-slide.png"
+                alt="Image 3"
+                class="w-[367px] cursor-pointer"
+                onclick="openModal(this.src)"
+              />
+            </div>
+
+            <!-- Right Scroll Button -->
             <img
-              src="./images/second-slide.png"
-              alt="Image 2"
-              class="w-32 cursor-pointer"
-              onclick="openModal(this.src)"
+              id="rightBtn"
+              class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent text-white p-2 cursor-pointer"
+              onclick="scrollRight()"
+              src="./images/slider-right-button.png"
             />
-            <img
-              src="./images/third-slide.png"
-              alt="Image 3"
-              class="w-32 cursor-pointer"
-              onclick="openModal(this.src)"
-            />
-  
           </div>
-        
-          <!-- Right Scroll Button -->
-          <button
-            id="rightBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
-            onclick="scrollRight()"
+          <!-- Modal -->
+          <div
+            id="imageModal"
+            class="fixed inset-x-[28%] inset-y-[15%] 2xl:inset-x-[18%] 2xl:inset-y-[15%] bg-black bg-transparent hidden items-center justify-center border-orange-500"
           >
-            &#9654;
-          </button>
-        </div>
-        
-        <!-- Modal -->
-        <div
-          id="imageModal"
-          class="fixed inset-x-[28%] inset-y-[15%] 2xl:inset-x-[18%] 2xl:inset-y-[15%] bg-black bg-transparent hidden items-center justify-center border-orange-500"
-        >
-          <div class="relative 2xl:w-[1130px] 2xl:h-[675px] lg:w-[650px] lg:h-[400px] ">
-            <span
-              class="absolute top-0 right-0 p-2 text-white cursor-pointer"
-              onclick="closeModal()"
-              >×</span
+            <div
+              class="relative 2xl:w-[1130px] 2xl:h-[675px] lg:w-[650px] lg:h-[400px]"
             >
-            <!-- Left Modal Navigation Button -->
-            <button
-              class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
-              onclick="navigateLeft()"
-            >
-              &#9664;
-            </button>
-        
-            <!-- Image Display in Modal -->
-            <img
-              id="modalImage"
-              src=""
-              alt="Selected Image"
-              class="absolute top-0 left-0 w-full h-full object-contain -z-10 "
-            />
-        
-            <!-- Right Modal Navigation Button -->
-            <button
-              class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
-              onclick="navigateRight()"
-            >
-              &#9654;
-            </button>
+              <span
+                class="absolute top-0 right-0 p-2 text-white cursor-pointer"
+                onclick="closeModal()"
+                >×</span
+              >
+              <!-- Left Modal Navigation Button -->
+              <button
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+                onclick="navigateLeft()"
+              >
+                &#9664;
+              </button>
+
+              <!-- Image Display in Modal -->
+              <img
+                id="modalImage"
+                src=""
+                alt="Selected Image"
+                class="absolute top-0 left-0 w-full h-full object-contain -z-10"
+              />
+
+              <!-- Right Modal Navigation Button -->
+              <button
+                class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+                onclick="navigateRight()"
+              >
+                &#9654;
+              </button>
+            </div>
+          </div>
+
+          <!-- video -->
+          <div class="mt-14">
+            <iframe
+              style="border: 2px solid #db8b51; margin: auto"
+              width="1140"
+              height="640"
+              src="https://www.youtube.com/embed/uzHIXWT-j5w?si=23L2BDS4k_FJvWSQ&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-        
-    
-        
       </section>
+
+      <!-- Features -->
+      <section class="bg-black pb-[60px]">
+        <div class="container mx-auto">
+          <h1 class="text-[34px] font-[656] mb-8 2xl:mb-[60px] underline">
+            Features
+          </h1>
+          <div class="text-2xl font-normal tracking-">
+            <li>New inventory design</li>
+            <li>New gameplay elements</li>
+            <li>Improved graphics</li>
+            <li>More enemies</li>
+            <li>New artifacts - new opportunities and much more!</li>
+          </div>
+        </div>
+      </section>
+
+      <!-- Socials -->
+      
     </main>
 
     <footer></footer>
@@ -218,43 +257,43 @@
 </html>
 
 <script>
-  const imageSlider = document.getElementById('imageSlider');
-  const images = imageSlider.querySelectorAll('img');
+  const imageSlider = document.getElementById("imageSlider");
+  const images = imageSlider.querySelectorAll("img");
   let currentIndex = 0;
 
   // Scroll functions for main slider
   function scrollLeft() {
-    imageSlider.scrollBy({ left: -150, behavior: 'smooth' });
+    imageSlider.scrollBy({ left: -150, behavior: "smooth" });
   }
 
   function scrollRight() {
-    imageSlider.scrollBy({ left: 150, behavior: 'smooth' });
+    imageSlider.scrollBy({ left: 150, behavior: "smooth" });
   }
 
   // Open modal with selected image
   function openModal(src) {
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
     modalImage.src = src;
-    modal.classList.remove('hidden');
-    currentIndex = [...images].findIndex(img => img.src === src);
+    modal.classList.remove("hidden");
+    currentIndex = [...images].findIndex((img) => img.src === src);
   }
 
   // Close modal
   function closeModal() {
-    const modal = document.getElementById('imageModal');
-    modal.classList.add('hidden');
+    const modal = document.getElementById("imageModal");
+    modal.classList.add("hidden");
   }
 
   // Navigate left in modal
   function navigateLeft() {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-    document.getElementById('modalImage').src = images[currentIndex].src;
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    document.getElementById("modalImage").src = images[currentIndex].src;
   }
 
   // Navigate right in modal
   function navigateRight() {
-    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-    document.getElementById('modalImage').src = images[currentIndex].src;
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    document.getElementById("modalImage").src = images[currentIndex].src;
   }
 </script>
